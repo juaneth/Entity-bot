@@ -1,7 +1,9 @@
-# API - Flask
+# Flask API
 ### The API lets you control your servers settings programmatically or you can take data like user count and messages per hour
 
 # How to use
+### To get an API key run the command `fl.devtools on` then run `fl.devtools apikey` which will direct message you the api key, this documentation page and our terms of use. If used improperly we will terminate your key and ban you from using our bot again.
+
 The base URL is `https://api.megdb.xyz/flaskapi/v1/` and there are multiple types of requests.
 
 You could send a `GET` request to `https://api.megdb.xyz/flaskapi/v1/usercount/?[API KEY]&[SERVER ID]` eg. `https://api.megdb.xyz/flaskapi/v1/usercount/?1234567890&[YOUR SERVERS ID]`, and then you'd get the response 
