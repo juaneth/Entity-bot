@@ -64,6 +64,9 @@ client.on('message', message => {
     if (command === 'prefix') {
         client.commands.get('prefix').execute(message, client, args, Discord);
     }
+    if (command === 'change') {
+        client.commands.get('change').execute(message, client, args, Discord);
+    }
 })
 
 //Bot token below to get token goto: https://discord.com/developers/applications
