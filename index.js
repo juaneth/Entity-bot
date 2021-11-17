@@ -64,8 +64,8 @@ client.on('message', message => {
     if (command === 'prefix') {
         client.commands.get('prefix').execute(message, client, args, Discord);
     }
-    if (command === 'change') {
-        client.commands.get('change').execute(message, client, args, Discord);
+    if (command === 'changelog') {
+        client.commands.get('changelog').execute(message, client, args, Discord);
     }
 })
 

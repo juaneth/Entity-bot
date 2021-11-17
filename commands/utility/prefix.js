@@ -12,5 +12,5 @@ module.exports = {
         }
     }
 }
- 
+
 //This is in the making

@@ -11,19 +11,19 @@ module.exports = {
             api = Math.round(client.ws.ping)
             discordJSVersion = packageJSON.dependencies["discord.js"];
             const pingembed = new Discord.MessageEmbed()
-             .setColor(`RANDOM`)
-             .setTitle(`🏓 Pong!`)
-             .addFields(
-                { name: '**Latency**', value: `${ping}ms`, inline: true },
-                { name: `**API**`, value: `${api}ms`, inline: true },
-                { name: `**Discord.js Version**`, value: `${discordJSVersion}`, inline: true },
-             )  
-             .setFooter(`Flask Version ${infofile.Version}`)
-             .setTimestamp();
-             message.channel.send({
-                embeds: [ pingembed ]
+                .setColor(`RANDOM`)
+                .setTitle(`🏓 Pong!`)
+                .addFields(
+                    { name: '**Latency**', value: `${ping}ms`, inline: true },
+                    { name: `**API**`, value: `${api}ms`, inline: true },
+                    { name: `**Discord.js Version**`, value: `${discordJSVersion}`, inline: true },
+                )
+                .setFooter(`Flask Version ${infofile.Version}`)
+                .setTimestamp();
+            message.channel.send({
+                embeds: [pingembed]
             });
             msg.delete();
-           });
+        });
     }
 }
