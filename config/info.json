@@ -1,5 +1,6 @@
 {
-    "Version": "V1.0.0 Alpha",
+    "Version": "v0.0.2 Alpha",
     "Developers": "Meg!, Juaneth.",
-    "Artist": "Sphoonix."
+    "Artist": "Sphoonix.",
+    "Changes": "./changes/v0.0.2"
 }
