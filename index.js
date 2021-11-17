@@ -8,7 +8,8 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const fs = require('fs'); //npm i fs
 
 //This code is for reading commands on luanch 
-const Status = require('./config/Status.js')
+const Status = require('./config/Status.js');
+const flaskapi = require('./api/index.js');
 const config = require('./config/config.json');
 const prefixchecker = require('./config/config.json')
 const token = config.token;
@@ -53,11 +54,14 @@ client.on('message', message => {
     //Server Checking Commands
     if (command === 'ping') {
         client.commands.get('ping').execute(message, client, args, Discord);
-    } if (command === 'staff') {
+    }
+    if (command === 'staff') {
         client.commands.get('staff').execute(message, client, args, Discord);
-    } if (command === 'help') {
+    }
+    if (command === 'help') {
         client.commands.get('help').execute(message, client, args, Discord);
-    } if (command === 'prefix') {
+    }
+    if (command === 'prefix') {
         client.commands.get('prefix').execute(message, client, args, Discord);
     }
 })
