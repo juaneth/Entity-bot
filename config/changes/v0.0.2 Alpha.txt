@@ -1,3 +1,5 @@
 Changelog - v0.0.2 Alpha
 
-1. Added API
+1. Added API (more info here: https://github.com/Flask-Discord/Flask/blob/main/api/README.md)
+
+2. Added Changelog system which automatically reads from these as a file then you can use 'fl.changelog' to get the newest but you can also use 'fl.changelog [VERSION]' to get a specific one or use 'fl.changelog all' to get all previous changelogs
