@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+h1.maintitle {
+    text-align: center;
+}
+
+div.main {
+    padding: 40px;
+    background-color: rgb(37, 37, 37);
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: -6px 6px 7px 3px rgba(0, 0, 0, 0.25);
+}
+
+div.serverlist {
+    padding: 40px;
+    background-color: rgb(43, 43, 43);
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: -6px 6px 7px 3px rgba(0, 0, 0, 0.25);
+}
+
+body {
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(31, 31, 31);
+}
+
+.grid-container {
+    display: inline-grid;
+}
