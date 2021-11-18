@@ -6,14 +6,16 @@ module.exports = {
     name: "changelog",
     description: "Shows Chaneglogs",
     execute(message, client, args) {
+        const messageArray = message.content.split(' ');
+        const vnumber = messageArray.slice(1).join(' ');
 
         try {
-            if (args[0]) {
+            if (vnumber) {
                 const infofile = require("../../config/info.json")
-                const changelog = require(`../../config/changes/${args}.json`)
+                const changelog = require(`../../config/changes/${vnumber}.json`)
                 const Changelogembed = new Discord.MessageEmbed()
                     .setColor(`RANDOM`)
-                    .setTitle(`📜 Change logs for ${args}!`)
+                    .setTitle(`📜 Change logs for ${vnumber}!`)
                     .addFields(
                         { name: '**Developers**', value: `${infofile.Developers}`, inline: true },
                         { name: `**Changelogs**`, value: `${changelog.Changes}`, inline: true },
@@ -25,7 +27,7 @@ module.exports = {
                 return;
             }
         } catch (err) {
-            message.channel.send(`Changelog \`\`${args}\`\` Wasnt found!`)
+            message.channel.send(`Changelog \`\`${vnumber}\`\` Wasnt found!`)
             return;
         }
 
