@@ -34,7 +34,7 @@ module.exports = {
             )
             .setTimestamp();
         message.channel.send({
-            embed: [clearembed]
+            embeds: [clearembed]
         })
     }
 }
