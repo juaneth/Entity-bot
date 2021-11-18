@@ -67,6 +67,14 @@ client.on('message', message => {
     if (command === 'changelog') {
         client.commands.get('changelog').execute(message, client, args, Discord);
     }
+    if (command === 'kick') {
+        client.commands.get('kick').execute(message, client, args, Discord);
+    } if (command === 'ban') {
+        client.commands.get('ban').execute(message, client, args, Discord);
+    }
+    if (command === 'clear') {
+        client.commands.get('clear').execute(message, client, args, Discord);
+    }
 })
 
 //Bot token below to get token goto: https://discord.com/developers/applications
