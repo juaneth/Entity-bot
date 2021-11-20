@@ -3,7 +3,7 @@ var express = require("express");
 
 var app = express();
 app.listen(1455, () => {
-    console.log("Server running on http://localhost:1455, test on http://localhost:1455/usercount?apikey=debug");
+    console.log("API running on http://localhost:1455");
 
     app.get("/", (req, res, next) => {
         res.status(200);
