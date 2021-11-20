@@ -1,5 +1,3 @@
-const Discord = require('discord.js')
-
 module.exports = {
     name: "kick",
     description: "kicks a user",
@@ -61,7 +59,7 @@ module.exports = {
         } catch (err) {
             const errrorembed = new Discord.MessageEmbed()
                 .setColor("RED")
-                .setTitle("There was a error!")
+                .setTitle("<a:cross:910840621097447475> There was a error!")
                 .setDescription(`Error details \n \`${err}\``)
             message.channel.send({
                 embeds: [errrorembed]

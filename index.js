@@ -27,6 +27,9 @@ function loadCommandsFromFolder(folder) {
 // Load commands from folder './commands/moderation'
 loadCommandsFromFolder('./commands/moderation');
 
+// Load commands from folder './commands/media'
+loadCommandsFromFolder('./commands/media');
+
 // Load commands from folder './commands/help'
 loadCommandsFromFolder('./commands/help');
 
@@ -75,7 +78,69 @@ client.on('message', message => {
     if (command === 'clear') {
         client.commands.get('clear').execute(message, client, args, Discord);
     }
+    if (command === 'play') {
+        client.commands.get('play').execute(message, client, args, Discord)
+    } if (command === 'stop') {
+        client.commands.get('stop').execute(message, client, args, Discord)
+    } if (command === 'suggest') {
+        client.commands.get('suggest').execute(message, client, args, Discord)
+    }
 })
+
+
+client.on("guildCreate", async (guild) => {
+    const channelID = '911303957358456932'
+    const joinembed = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setThumbnail(guild.iconURL({ dynamic: true }))
+        .setTitle("New Server!")
+        .addField("Server Name", guild.name, true)
+        .addField("Server ID", guild.id, true)
+        .addField("Owner ID", guild.ownerId, true)
+        .addField("Owner Mention", `<@${guild.ownerId}>`, true)
+        .addField("Member Count", guild.memberCount.toString(), true)
+
+    //    console.log(guild.channels.cache)
+    //     console.log(guild.channels.cache.filter(channel => channel.type === "GUILD_TEXT"))
+    await guild.channels.cache
+        .filter(guild.channels.cache.filter(channel => channel.type === "GUILD_TEXT")) //added this line, should work like a charm
+        .first()
+        .createInvite()
+        .then((invite) => embed.addField("Invite link", invite.url, true))
+        .catch(() => embed.addField("Invite link", "Missing permissions", true));
+
+    client.channels.fetch(channelID)
+        .then(channel => {
+            channel.send({
+                embeds: [joinembed]
+            })
+        })
+        .catch(err => {
+            console.error(`\nError sending guildCreate message:\n${err}`);
+        });
+});
+client.on("guildDelete", async (guild) => {
+    const channelID = '911304396317552640'
+    const leaveembed = new Discord.MessageEmbed()
+        .setColor("RANDOM")
+        .setThumbnail(guild.iconURL({ dynamic: true }))
+        .setTitle("I got kicked for a server!")
+        .addField("Server Name", guild.name, true)
+        .addField("Server ID", guild.id, true)
+        .addField("Owner ID", guild.ownerId, true)
+        .addField("Owner Mention", `<@${guild.ownerId}>`, true)
+        .addField("Member Count", guild.memberCount.toString(), true)
+
+    client.channels.fetch(channelID)
+        .then(channel => {
+            channel.send({
+                embeds: [leaveembed]
+            })
+        })
+        .catch(err => {
+            console.error(`\nError sending guildCreate message:\n${err}`);
+        });
+});
 
 //Bot token below to get token goto: https://discord.com/developers/applications
 client.login(token);

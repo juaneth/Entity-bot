@@ -1,5 +1,3 @@
-const Discord = require('discord.js')
-
 module.exports = {
     name: "clear",
     description: "Clears messages",
@@ -13,6 +11,7 @@ module.exports = {
             message.channel.send({
                 embeds: [pemsmessage]
             })
+            return;
         }
         if (!args[0]) return message.reply("Please enter the amount of messages that you want to clear");
         if (isNaN(args[0])) return message.channel("Please enter a real number!");
@@ -30,7 +29,7 @@ module.exports = {
             .addFields(
                 { name: `How Many`, value: `🧹 ${args[0]}`, inline: true },
                 { name: `User's ID`, value: `${message.author.id}`, inline: true },
-                { name: 'Cleard By', value: `${message.author.tag}`, inline: true },
+                { name: 'Cleared By', value: `${message.author.tag}`, inline: true },
             )
             .setTimestamp();
         message.channel.send({
