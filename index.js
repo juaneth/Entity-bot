@@ -87,7 +87,6 @@ client.on('message', message => {
     }
 })
 
-
 client.on("guildCreate", async (guild) => {
     const channelID = '911303957358456932'
     const joinembed = new Discord.MessageEmbed()
@@ -99,15 +98,6 @@ client.on("guildCreate", async (guild) => {
         .addField("Owner ID", guild.ownerId, true)
         .addField("Owner Mention", `<@${guild.ownerId}>`, true)
         .addField("Member Count", guild.memberCount.toString(), true)
-
-    //    console.log(guild.channels.cache)
-    //     console.log(guild.channels.cache.filter(channel => channel.type === "GUILD_TEXT"))
-    await guild.channels.cache
-        .filter(guild.channels.cache.filter(channel => channel.type === "GUILD_TEXT")) //added this line, should work like a charm
-        .first()
-        .createInvite()
-        .then((invite) => embed.addField("Invite link", invite.url, true))
-        .catch(() => embed.addField("Invite link", "Missing permissions", true));
 
     client.channels.fetch(channelID)
         .then(channel => {
