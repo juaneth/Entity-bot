@@ -9,7 +9,7 @@ const fs = require('fs'); //npm i fs
 
 //This code is for reading commands on luanch 
 const Status = require('./config/Status.js');
-const flaskapi = require('./api/index.js');
+const flaskapi = require('./api/api.js');
 const config = require('./config/config.json');
 const prefixchecker = require('./config/config.json')
 const token = config.token;
