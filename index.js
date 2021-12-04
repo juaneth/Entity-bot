@@ -96,8 +96,8 @@ client.on('message', message => {
     if (command === 'status') {
         client.commands.get('status').execute(message, client, args, Discord)
     }
-    if (command === 'cards-against-humanity') {
-        client.commands.get('cards-against-humanity').execute(message, client, args, Discord)
+    if (command === 'cah') {
+        client.commands.get('cah').execute(message, client, args, Discord)
     }
 })
 
