@@ -39,6 +39,9 @@ loadCommandsFromFolder('./commands/utility');
 // Load commands from folder './commands/test'
 loadCommandsFromFolder('./commands/test');
 
+// Load commands from folder './commands/fun'
+loadCommandsFromFolder('./commands/fun');
+
 //Prefix for bot
 const prefix = configprefix;
 
@@ -54,7 +57,6 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    //Server Checking Commands
     if (command === 'ping') {
         client.commands.get('ping').execute(message, client, args, Discord);
     }
@@ -87,6 +89,12 @@ client.on('message', message => {
     }
     if (command === 'suggest') {
         client.commands.get('suggest').execute(message, client, args, Discord)
+    } 
+    if (command === 'hangman') {
+        client.commands.get('hangman').execute(message, client, args, Discord)
+    }
+    if (command === 'status') {
+        client.commands.get('status').execute(message, client, args, Discord)
     }
 })
 
