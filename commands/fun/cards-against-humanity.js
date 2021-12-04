@@ -1,4 +1,7 @@
 module.exports = {
     name: 'cards-against-humanity',
-    description: '',
+    description: 'Plays cards-against-humanity',
+    execute(message, Discord) {
+        message.channel.send("test")
+    }
 }
