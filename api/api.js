@@ -1,5 +1,6 @@
 const { json } = require("express");
 var express = require("express");
+const fs = require("fs");
 
 var port = 1455;
 
@@ -9,7 +10,7 @@ app.listen(port, () => {
 
     app.get("/", (req, res, next) => {
         res.status(200);
-        console.log('');
+        console.log('::Request to Main::');
         res.send("Welcome to the Flask API, to get an API key and/or to find the documentation, go to https://github.com/Flask-Discord/Flask/blob/main/api/README.md");
 
     });
@@ -31,20 +32,15 @@ app.listen(port, () => {
         }
     });
 
-    app.get("/settings", (req, res, next) => {
-        if (req.query.apikey == undefined) {
-            res.status(400);
-            res.send('API Key not defined, you can request one by following the instructions at https://github.com/Flask-Discord/Flask/blob/main/api/README.md');
-        } else {
-            res.status(200);
-            var serverid = req.query.serverid;
+    app.get("/ping", (req, res, next) => {
+        res.status(200);
 
-            console.log("Server ID: " + serverid + ", API Key: " + req.query.apikey);
-            res.json({
-                "usercount": "42",
-                "server": "Flask",
-                "server-id": "909232074253295638",
-            });
-        }
+        var recentping = fs.readFile('./latency.json');
+
+        console.log("Ping Requested: ");
+        res.json({
+            "disclaimer": "This is calculated as the last time somebody sent fl.ping, may not be acurate, also is  Discord-API + Ping",
+            "ping": "",
+        });
     });
 });
