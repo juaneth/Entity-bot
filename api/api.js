@@ -1,9 +1,11 @@
 const { json } = require("express");
 var express = require("express");
 
+var port = 1455;
+
 var app = express();
-app.listen(1455, () => {
-    console.log("API running on http://localhost:1455");
+app.listen(port, () => {
+    console.log(`API running on http://localhost:${port}`);
 
     app.get("/", (req, res, next) => {
         res.status(200);
