@@ -72,7 +72,8 @@ client.on('message', message => {
     }
     if (command === 'kick') {
         client.commands.get('kick').execute(message, client, args, Discord);
-    } if (command === 'ban') {
+    }
+    if (command === 'ban') {
         client.commands.get('ban').execute(message, client, args, Discord);
     }
     if (command === 'clear') {
@@ -80,9 +81,11 @@ client.on('message', message => {
     }
     if (command === 'play') {
         client.commands.get('play').execute(message, client, args, Discord)
-    } if (command === 'stop') {
+    }
+    if (command === 'stop') {
         client.commands.get('stop').execute(message, client, args, Discord)
-    } if (command === 'suggest') {
+    }
+    if (command === 'suggest') {
         client.commands.get('suggest').execute(message, client, args, Discord)
     }
 })
@@ -110,6 +113,7 @@ client.on("guildCreate", async (guild) => {
         });
 });
 client.on("guildDelete", async (guild) => {
+    //All this does is reports back to us for analytics, this is only accessed by @juaneth and @Ohmeg and nobody else can access these stats
     const channelID = '911304396317552640'
     const leaveembed = new Discord.MessageEmbed()
         .setColor("RANDOM")
