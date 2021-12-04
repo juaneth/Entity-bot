@@ -1,13 +1,13 @@
-// This is needed for discord.js
+// This is needed for discord.js || BOILERPLATE
 const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 
-//Stuff added by npm
+//NPM packages
 const fs = require('fs'); //npm i fs
 
-//This code is for reading commands on luanch 
+//This code is for reading commands on launch 
 const Status = require('./config/Status.js');
 const flaskapi = require('./api/api.js');
 const config = require('./config/config.json');
@@ -16,7 +16,7 @@ const token = config.token;
 const configprefix = prefixchecker.prefix;
 client.commands = new Discord.Collection();
 
-// Define a function to load commands from a specific given folder
+//Load commands from a given folder
 function loadCommandsFromFolder(folder) {
     const commandFiles = fs.readdirSync(folder).filter(file => file.endsWith('.js'));
     for (const file of commandFiles) {
