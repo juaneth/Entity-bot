@@ -9,7 +9,6 @@ const fs = require('fs'); //npm i fs
 
 //This code is for reading commands on luanch 
 const Status = require('./config/Status.js');
-const flaskapi = require('./api/api.js');
 const config = require('./config/config.json');
 const prefixchecker = require('./config/config.json')
 const token = config.token;
@@ -89,7 +88,7 @@ client.on('message', message => {
     }
     if (command === 'suggest') {
         client.commands.get('suggest').execute(message, client, args, Discord)
-    } 
+    }
     if (command === 'hangman') {
         client.commands.get('hangman').execute(message, client, args, Discord)
     }
@@ -149,3 +148,52 @@ client.on("guildDelete", async (guild) => {
 
 //Bot token below to get token goto: https://discord.com/developers/applications
 client.login(token);
+
+//BOT CODE!
+//==================================================================================================================================//
+//API!
+
+const { json } = require("express");
+var express = require("express");
+
+var port = 1455;
+
+var app = express();
+app.listen(port, () => {
+    console.log(`API running on http://localhost:${port}`);
+
+    app.get("/", (req, res, next) => {
+        res.status(200);
+        console.log('::Main Requested::');
+        res.send("Welcome to the Flask API, to get an API key and/or to find the documentation, go to https://github.com/Flask-Discord/Flask/blob/main/api/README.md");
+
+    });
+
+    app.get("/usercount", (req, res, next) => {
+        if (req.query.apikey == undefined) {
+            res.status(400);
+            res.send('API Key not defined, you can request one by following the instructions at https://github.com/Flask-Discord/Flask/blob/main/api/README.md');
+        } else {
+            res.status(200);
+
+            console.log("::Usercount Requested:: API Key: " + req.query.apikey);
+            res.json({
+                "usercount": "42",
+                "server": "Flask",
+                "server-id": "909232074253295638",
+            });
+        }
+    });
+
+    app.get("/ping", (req, res, next) => {
+        res.status(200);
+
+        var recentping = fs.readFileSync('ping.pong', 'utf-8');
+
+        console.log(`::Ping Requested:: Ping: ${recentping}`);
+        res.json({
+            "disclaimer": "This is calculated as the last time somebody sent fl.ping, may not be acurate, also is  Discord-API + Ping",
+            "ping": `${recentping}`,
+        });
+    });
+});
