@@ -94,34 +94,37 @@ client.on('message', message => {
     if (command === 'status') {
         client.commands.get('status').execute(message, client, args, Discord)
     }
-   // if (command === 'cah') {
-  //      client.commands.get('cah').execute(message, client, args, Discord)
+    if (command === 'devtools') {
+        client.commands.get('devtools').execute(message, client, args, Discord)
+    }
+    // if (command === 'cah') {
+    //      client.commands.get('cah').execute(message, client, args, Discord)
     //}
 })
 
 client.on('messageCreate', (message) => {
     if (message.content === 'fl.cah') {
         const buttonRow1 = new Discord.MessageActionRow()
-        .addComponents(
-            new Discord.MessageButton()
-            .setCustomId('card1')
-            .setLabel('Card 1')
-            .setStyle('SECONDARY'),
-            new Discord.MessageButton()
-            .setCustomId('card2')
-            .setLabel('Card 2')
-            .setStyle('PRIMARY')
-        );
+            .addComponents(
+                new Discord.MessageButton()
+                    .setCustomId('card1')
+                    .setLabel('Card 1')
+                    .setStyle('SECONDARY'),
+                new Discord.MessageButton()
+                    .setCustomId('card2')
+                    .setLabel('Card 2')
+                    .setStyle('PRIMARY')
+            );
 
-        message.channel.send({ content: "Testing Buttons!", components: [buttonRow1]});
+        message.channel.send({ content: "Testing Buttons!", components: [buttonRow1] });
     }
 });
 
-client.on('interactionCreate', async interaction => {
+client.on('interactionCreate', interaction => {
 
     if (!interaction.isButton()) return;
 
-    await interaction.reply({ content: 'Pong!', components: [buttonRow1] });
+    interaction.reply({ content: "test" });
 });
 
 client.on("guildCreate", async (guild) => {
