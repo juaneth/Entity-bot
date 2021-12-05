@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 const { Client, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-
 //Stuff added by npm
 const fs = require('fs'); //npm i fs
 
@@ -146,11 +145,16 @@ client.on("guildDelete", async (guild) => {
         });
 });
 
-//Bot token below to get token goto: https://discord.com/developers/applications
-client.login(token);
+//Bot token below to get token go to: https://discord.com/developers/applications
+try {
+    client.login(token);
+}
+catch {
+    console.log('Token invalid, go outside of the flask folder and into flask-config, then fill in the token');
+}
 
 //BOT CODE!
-//==================================================================================================================================//
+//=================================================================================================================================\\
 //API!
 
 const { json } = require("express");
