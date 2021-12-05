@@ -117,11 +117,11 @@ client.on('messageCreate', (message) => {
     }
 });
 
-client.on('interactionCreate', interaction => {
+client.on('interactionCreate', async interaction => {
 
     if (!interaction.isButton()) return;
 
-    interaction.reply({content: "test"});
+    await interaction.reply({ content: 'Pong!', components: [buttonRow1] });
 });
 
 client.on("guildCreate", async (guild) => {
