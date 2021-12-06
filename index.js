@@ -224,7 +224,6 @@ app.listen(port, () => {
 
         console.log(new Date().toLocaleString() + ` ::API Ping Requested:: Ping: ${recentping}`);
         res.json({
-            "disclaimer": "This is calculated as the last time somebody sent fl.ping, may not be acurate, also is  Discord-API + Ping",
             "ping": `${recentping}`,
         });
     });
