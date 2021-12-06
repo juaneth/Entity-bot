@@ -9,17 +9,29 @@ const defaultconfig = {
 try {
     fs.mkdirSync('../flask-config');
     fs.mkdirSync('../flask-config/server-data');
-    fs.writeFileSync('../flask-config/server-data/devtools.json', '');
-    fs.writeFileSync('../flask-config/server-data/apikeys.json', '');
+    fs.writeFileSync("../flask-config/server-data/devtools.json", '{}', 'utf-8');
+    fs.writeFileSync("../flask-config/server-data/apikeys.json", '{}', 'utf-8');
     fs.mkdirSync('./commands/test');
     console.log(`Setup made folder: ../flask-config`);
-} catch {
-    console.log('Folder already exists: ../flask-config');
+} catch (err) {
+    console.log(err + "\n");
 }
 
 try {
     fs.writeFileSync("../flask-config/config.json", JSON.stringify(defaultconfig, null, 4), 'utf-8');
-    console.log('Writing file finished, open file in ../flask-config/config.json (Next to the base Flask folder inside flask-config) and write in the token that can be found at https://discord.com/developers/applications');
+    const readline = require("readline");
+
+    console.log('Writing file finished, go to https://discord.com/developers/applications and create a new bot and get the token, then input below');
+
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+
+    rl.question("Bot Token: ", function (answer) {
+        console.log(`Token (Always keep secret from others): ${answer}`);
+        rl.close();
+    });
 } catch {
     console.log('Writing file failed: ../flask-config/config.json');
 }

@@ -196,7 +196,7 @@ app.listen(port, () => {
 
     app.get("/", (req, res, next) => {
         res.status(200);
-        console.log(new Date().toLocaleString() + ' ::Main Requested::');
+        console.log(new Date().toLocaleString() + ' ::API Main Requested::');
         res.send("Welcome to the Flask API, to get an API key and/or to find the documentation, go to https://github.com/Flask-Discord/Flask/blob/main/api/README.md");
 
     });
@@ -208,7 +208,7 @@ app.listen(port, () => {
         } else {
             res.status(200);
 
-            console.log(new Date().toLocaleString() + " ::Usercount Requested:: API Key: " + req.query.apikey);
+            console.log(new Date().toLocaleString() + " ::API Usercount Requested:: API Key: " + req.query.apikey);
             res.json({
                 "usercount": "42",
                 "server": "Flask",
@@ -222,7 +222,7 @@ app.listen(port, () => {
 
         var recentping = fs.readFileSync('ping.pong', 'utf-8');
 
-        console.log(new Date().toLocaleString() + ` ::Ping Requested:: Ping: ${recentping}`);
+        console.log(new Date().toLocaleString() + ` ::API Ping Requested:: Ping: ${recentping}`);
         res.json({
             "disclaimer": "This is calculated as the last time somebody sent fl.ping, may not be acurate, also is  Discord-API + Ping",
             "ping": `${recentping}`,
