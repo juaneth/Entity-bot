@@ -27,11 +27,23 @@ try {
         input: process.stdin,
         output: process.stdout,
     });
+    try {
+        rl.question("Bot Token: ", function (answer) {
+            console.log(`Token written (Always keep secret from others): ${answer}`);
 
-    rl.question("Bot Token: ", function (answer) {
-        console.log(`Token (Always keep secret from others): ${answer}`);
-        rl.close();
-    });
+            const configwithtoken = {
+                "token": `${answer}`,
+                "prefix": "fl."
+            }
+
+            fs.writeFileSync("../flask-config/config.json", JSON.stringify(configwithtoken, null, 4), 'utf-8');
+
+            rl.close();
+        });
+    } catch (err) {
+        console.log('Error, cannot write token to config: ' + err);
+    }
+
 } catch {
     console.log('Writing file failed: ../flask-config/config.json');
 }
