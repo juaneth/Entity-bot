@@ -1,1 +1,2 @@
-# Devtools
+# Flask Devtools
+## The Devtools lets you control your servers settings more precisely and lets users who 100% know what they're doing use Flask for their uses. Plus this command can issue api-keys and beta-keys (Use the Beta Keys to access experimental features).

@@ -8,6 +8,9 @@ const defaultconfig = {
 
 try {
     fs.mkdirSync('../flask-config');
+    fs.mkdirSync('../flask-config/server-data');
+    fs.writeFileSync('../flask-config/server-data/devtools.json', '');
+    fs.writeFileSync('../flask-config/server-data/apikeys.json', '');
     fs.mkdirSync('./commands/test');
     console.log(`Setup made folder: ../flask-config`);
 } catch {
