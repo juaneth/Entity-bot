@@ -36,6 +36,8 @@ module.exports = {
                 })
                 memberTarget.kick();
                 return;
+            } else {
+                message.channel.send("Please mention a user!")
             }
 
             // No Reason Kick
