@@ -38,6 +38,8 @@ module.exports = {
                 })
                 memberTarget.ban();
                 return;
+            } else {
+                message.channel.send("Please mention a user!")
             }
 
             // No Reason ban
