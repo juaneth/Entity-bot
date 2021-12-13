@@ -54,11 +54,11 @@ module.exports = {
                     )
 
                 memberTarget.ban();
-                message.channel.send({
+                message.reply({
                     embeds: [banembed]
                 })
             } else {
-                message.channel.send("Please mention a user!")
+                message.reply("Please mention a user!")
             }
         } catch (err) {
             const errrorembed = new Discord.MessageEmbed()
