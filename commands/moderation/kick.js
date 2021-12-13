@@ -36,8 +36,9 @@ module.exports = {
                 })
                 memberTarget.kick();
                 return;
+            } else {
+                message.channel.send("Please mention a user!")
             }
-
             // No Reason Kick
             if (target) {
                 const kickembed = new Discord.MessageEmbed()
@@ -50,11 +51,12 @@ module.exports = {
                     )
 
                 memberTarget.kick();
-                message.channel.send({
+                message.reply({
                     embeds: [kickembed]
                 })
+                return;
             } else {
-                message.channel.send("Please mention a user!")
+                message.reply("Please mention a user!")
             }
         } catch (err) {
             const errrorembed = new Discord.MessageEmbed()

@@ -6,4 +6,8 @@
 
 ## [Add bot to your server](https://discord.com/api/oauth2/authorize?client_id=909211342643273738&permissions=173345696982&scope=bot)
 
-## REMINDER: API IS NOT SET UP YET, NO API KEYS WILL BE ISSUED YET
+# Developers
+
+### If you want to use this without making major modifications you will need to run `node setup.js` to create the configuration files located outside the root folder. Then run `npm install` and it should work perfectly when you run `node .` <3
+
+## REMINDER: API IS NOT SET UP YET, NO API KEYS WILL BE ISSUED
