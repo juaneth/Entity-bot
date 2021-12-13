@@ -5,13 +5,13 @@ module.exports = {
     description: "bans a user",
     execute(message, client, args, Discord) {
         if (!message.member.permissions.has('BAN_MEMBERS')) {
-            const pemskick = new Discord.MessageEmbed()
+            const permsbad = new Discord.MessageEmbed()
                 .setColor(`RED`)
                 .setTitle(`<a:cross:910840621097447475> You dont have the correct permissions!`)
                 .setDescription(`Sorry ${message.author} you dont have \`BAN_MEMBERS\``)
                 .setTimestamp();
             message.channel.send({
-                embeds: [pemskick]
+                embeds: [permsbad]
             })
             return
         }

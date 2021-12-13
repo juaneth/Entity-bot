@@ -26,6 +26,7 @@
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.0",
     "fs": "0.0.1-security",
+    "generate-api-key": "^1.0.0",
     "http": "^0.0.1-security",
     "nodejs-file-downloader": "^4.7.4",
     "yt-search": "^0.1.1",

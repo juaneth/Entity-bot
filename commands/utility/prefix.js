@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const prefixfile = require("../../config/config.json")
+const prefixfile = require("../../../flask-config/config.json")
 
 module.exports = {
     name: "prefix",
