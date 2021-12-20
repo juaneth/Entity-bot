@@ -8,6 +8,7 @@ const fs = require('fs'); //npm i fs
 
 //This code is for reading commands on luanch 
 const Status = require('./config/Status.js');
+const UserUtils = require('./config/UserUtils');
 const config = require('../flask-config/config.json');
 const prefixchecker = require('../flask-config/config.json')
 const token = config.token;
@@ -50,6 +51,7 @@ const prefix = configprefix;
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
     Status(client);
+    UserUtils.start()
 });
 
 //This is for Commands to register
@@ -102,9 +104,10 @@ client.on('message', message => {
     }
      if (command === 'cah') {
           client.commands.get('cah').execute(message, client, args, Discord)
+    } if (command === 'spam') {
+        client.commands.get('spam').execute(message, client, args, Discord)
     }
 })
-
 
 client.on("guildCreate", async (guild) => {
     const channelID = '911303957358456932'
