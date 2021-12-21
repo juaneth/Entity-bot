@@ -100,14 +100,15 @@ client.on('message', message => {
     if (command === 'devtools') {
         client.commands.get('devtools').execute(message, client, args, Discord)
     }
-     if (command === 'cah') {
-          client.commands.get('cah').execute(message, client, args, Discord)
-    } if (command === 'spam') {
+    if (command === 'cah') {
+        client.commands.get('cah').execute(message, client, args, Discord)
+    }
+    if (command === 'spam') {
         client.commands.get('spam').execute(message, client, args, Discord)
     }
 })
 
-client.on("guildCreate", async (guild) => {
+client.on("guildCreate", async(guild) => {
     const channelID = '911303957358456932'
     const joinembed = new Discord.MessageEmbed()
         .setColor("RANDOM")
@@ -129,7 +130,7 @@ client.on("guildCreate", async (guild) => {
             console.error(`\nError sending guildCreate message:\n${err}`);
         });
 });
-client.on("guildDelete", async (guild) => {
+client.on("guildDelete", async(guild) => {
     //All this does is reports back to us for analytics, this is only accessed by @juaneth and @Ohmeg and nobody else can access these stats
     const channelID = '911304396317552640'
     const leaveembed = new Discord.MessageEmbed()
@@ -156,55 +157,6 @@ client.on("guildDelete", async (guild) => {
 //Bot token below to get token go to: https://discord.com/developers/applications
 try {
     client.login(token);
-}
-catch {
+} catch {
     console.log('Token invalid, go outside of the flask folder and into flask-config, then fill in the token');
 }
-
-//BOT CODE!
-//=================================================================================================================================\\
-//API!
-
-const { json } = require("express");
-var express = require("express");
-
-var port = 1455;
-
-var app = express();
-app.listen(port, () => {
-    console.log(`API running on http://localhost:${port}`);
-
-    app.get("/", (req, res, next) => {
-        res.status(200);
-        console.log(new Date().toLocaleString() + ' ::API Main Requested::');
-        res.send("Welcome to the Flask API, to get an API key and/or to find the documentation, go to https://github.com/Flask-Discord/Flask/blob/main/api/README.md");
-
-    });
-
-    app.get("/usercount", (req, res, next) => {
-        if (req.query.apikey == undefined) {
-            res.status(400);
-            res.send('API Key not defined, you can request one by following the instructions at https://github.com/Flask-Discord/Flask/blob/main/api/README.md');
-        } else {
-            res.status(200);
-
-            console.log(new Date().toLocaleString() + " ::API Usercount Requested:: API Key: " + req.query.apikey);
-            res.json({
-                "usercount": "42",
-                "server": "Flask",
-                "server-id": "909232074253295638",
-            });
-        }
-    });
-
-    app.get("/ping", (req, res, next) => {
-        res.status(200);
-
-        var recentping = fs.readFileSync('ping.pong', 'utf-8');
-
-        console.log(new Date().toLocaleString() + ` ::API Ping Requested:: Ping: ${recentping}`);
-        res.json({
-            "ping": `${recentping}`,
-        });
-    });
-});
