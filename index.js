@@ -48,7 +48,7 @@ const prefix = configprefix;
 
 //This turns the bot on
 client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`[+] Logged in as ${client.user.tag}!`);
     Status(client);
 });
 
@@ -102,8 +102,8 @@ client.on('message', message => {
     }
      if (command === 'cah') {
           client.commands.get('cah').execute(message, client, args, Discord)
-    } if (command === 'spam') {
-        client.commands.get('spam').execute(message, client, args, Discord)
+    } if (command === 'rps') {
+        client.commands.get('rps').execute(message, client, args, Discord)
     }
 })
 

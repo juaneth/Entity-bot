@@ -7,7 +7,7 @@ module.exports = {
                 client.user.setStatus('idle');
                 const SleepEmbed = new Discord.MessageEmbed()
                     .setColor(`YELLOW`)
-                    .setTitle(`🌙 Night Night, My status is now \`\`idle!\`\``)
+                    .setTitle(`🌙 Night Night, My status is now \`\`Idle!\`\``)
                     .setTimestamp();
                 message.channel.send({
                     embeds: [SleepEmbed]
@@ -18,21 +18,21 @@ module.exports = {
                 client.user.setStatus('dnd');
                 const DNDEmbed = new Discord.MessageEmbed()
                     .setColor(`RED`)
-                    .setTitle(`❌ BRO STOP TALKING TO ME, My status is now \`\`dnd!\`\``)
+                    .setTitle(`❌ BRO STOP TALKING TO ME, My status is now \`\`DND!\`\``)
                     .setTimestamp();
                 message.channel.send({
                     embeds: [DNDEmbed]
                 })
             }
 
-            if (args[0] == 'ghosted') {
-                client.user.setStatus('offline');
-                const OfflineEmbed = new Discord.MessageEmbed()
-                    .setColor(`GREY`)
-                    .setTitle(`🛒 i dont see your messages, My status is now \`\`offline!\`\``)
+            if (args[0] == 'beeo-boop') {
+                client.user.setStatus('online');
+                const OnlineEmbed = new Discord.MessageEmbed()
+                    .setColor(`GREEN`)
+                    .setTitle(`🛒 i dont see your messages, My status is now \`\`Online!\`\``)
                     .setTimestamp();
                 message.channel.send({
-                    embeds: [OfflineEmbed]
+                    embeds: [OnlineEmbed]
                 })
             }
         }
